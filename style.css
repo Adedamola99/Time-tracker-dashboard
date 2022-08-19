@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+body {
+    background-color: #0D1323;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 100px;
+}
+
+.profile-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #1D204B;
+    border-radius: 1em;
+}
+
+.profile {
+    background-color: #5746EA;
+    padding: 1em 1em 3em 1em;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.name {
+    width: 80%;
+}
+
+.daily, .monthly, .weekly, .date, .report {
+    color: #696BAB;
+}
+
+.daily:hover, .monthly:hover, .weekly:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.profile-bottom {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.person-img {
+    width: 70px;
+    margin-bottom: 2em;
+}
+
+.icon {
+    width: 56px;
+    display: flex;
+    position: relative;
+    left: 130px;
+    height: 30px;
+    z-index: -7;
+    top: 2px;
+}
+
+.tracker {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.event-tracker { 
+    border-radius: 1em;
+    width: 200px;
+    z-index: 13;
+}
+
+.first-tracker {
+    background-color: #FF8B64;
+}
+
+.second-tracker{
+    background-color: #56C2E6;
+}
+
+.third-tracker{
+    background-color: #FF5E7D;
+}
+
+.fourth-tracker {
+    background-color: #4BCF83;
+}
+
+.fifth-tracker {
+    background-color: #7235D1;
+}
+
+.sixth-tracker {
+    background-color: #F1C75C;
+}
+
+.details{
+    background-color:  #1D204B;
+    border-radius: 8px;
+    padding: 1em;
+    z-index: 99;
+}
+
+
+.activity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1em;
+}
+
+.activity-time {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1em;
+}
