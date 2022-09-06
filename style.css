@@ -8,6 +8,7 @@
 body {
     background-color: #0D1323;
     color: white;
+    font-size: 16px;
 }
 
 .container {
@@ -37,13 +38,23 @@ body {
     width: 80%;
 }
 
-.daily, .monthly, .weekly, .date, .report {
+.daily, .monthly, .weekly, .date {
     color: #696BAB;
 }
 
-.daily:hover, .monthly:hover, .weekly:hover {
+.active, .report {
+    color: white;
+}
+
+
+.daily:hover, .monthly:hover, .weekly:hover, .ellipsis:hover {
     cursor: pointer;
     color: white;
+}
+
+.details:hover{
+    background-color: #34397B;
+    cursor: pointer;
 }
 
 .profile-bottom {
@@ -81,27 +92,27 @@ body {
     z-index: 13;
 }
 
-.first-tracker {
+.Work-tracker {
     background-color: #FF8B64;
 }
 
-.second-tracker{
+.Play-tracker{
     background-color: #56C2E6;
 }
 
-.third-tracker{
+.Study-tracker{
     background-color: #FF5E7D;
 }
 
-.fourth-tracker {
+.Exercise-tracker {
     background-color: #4BCF83;
 }
 
-.fifth-tracker {
+.Social-tracker {
     background-color: #7235D1;
 }
 
-.sixth-tracker {
+.Self-Care-tracker {
     background-color: #F1C75C;
 }
 
@@ -125,4 +136,63 @@ body {
     flex-direction: column;
     gap: 10px;
     margin-top: 1em;
+}
+
+@media only screen and (max-width: 880px) {
+    .container {
+        flex-direction: column;
+        max-width: 80%;
+        margin: 1em auto;
+    }
+
+    .event-tracker {
+        width: 100%;
+    }
+
+    .tracker {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .profile-bottom {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+
+    .name-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name {
+        width: 100%;
+    }
+
+    .profile {
+        padding: 1em 1em 1em 1em;
+        border-radius: 8px;
+        flex-direction: row;
+        gap: 30px;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .person-img {
+        width: 90px;
+        margin-top: 1.2em;
+    }
+
+    .box{
+        position: relative;
+        height: 43px;
+    }
+
+    .icon {
+        width: 60px;
+        right: 4px;
+        height: 55px;
+        left: auto;
+        position: absolute;
+    }
+
 }
