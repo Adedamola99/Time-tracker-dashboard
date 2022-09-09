@@ -28,7 +28,7 @@ function displayActivity() {
     let displayItems = data.map((items) => {
         return `<div class="event-tracker ${items.title}-tracker">
         <div class="box">
-            <img src="./images/icon-${items.title}.svg" class="icon" alt="">
+            <img src="./images/icon-${items.imgName}.svg" class="icon" alt="">
         </div>
         <div class="details">
             <div class="activity">
