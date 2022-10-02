@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: cursive;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -193,6 +193,13 @@ body {
         height: 55px;
         left: auto;
         position: absolute;
+    }
+
+    .activity-time {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 2em;
+        justify-content: space-between;
     }
 
 }
