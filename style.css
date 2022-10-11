@@ -38,7 +38,7 @@ body {
     width: 80%;
 }
 
-.daily, .monthly, .weekly, .date {
+.btn, .date {
     color: #696BAB;
 }
 
@@ -47,7 +47,7 @@ body {
 }
 
 
-.daily:hover, .monthly:hover, .weekly:hover, .ellipsis:hover {
+.btn:hover, .ellipsis:hover {
     cursor: pointer;
     color: white;
 }
@@ -92,27 +92,27 @@ body {
     z-index: 13;
 }
 
-.Work-tracker {
+.work {
     background-color: #FF8B64;
 }
 
-.Play-tracker{
+.play {
     background-color: #56C2E6;
 }
 
-.Study-tracker{
+.study{
     background-color: #FF5E7D;
 }
 
-.Exercise-tracker {
+.exercise {
     background-color: #4BCF83;
 }
 
-.Social-tracker {
+.social {
     background-color: #7235D1;
 }
 
-.Self-Care-tracker {
+.self-care {
     background-color: #F1C75C;
 }
 
