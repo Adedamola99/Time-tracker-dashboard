@@ -1,52 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Tracking Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./index.js"></script>
+  <title>Frontend Mentor | Time tracking dashboard</title>
 </head>
+
 <body>
-    <section class="container">
-        <div class="profile-box">
-            <div class="profile">
-                <img src="./images/image-jeremy.png" class="person-img" alt="">
-                <div class="name-box">
-                    <p class="report">Report for</p>
-                    <h1 class="name">Jeremy Robson</h1>
-                </div>
-            </div>
-
-            <div class="profile-bottom">
-                <p class="btn" data-id="daily">Daily</p>
-                <p class="btn" data-id="weekly">Weekly</p>
-                <p class="btn" data-id="monthly">Monthly</p>
-            </div>
+  <section class="activity-tracker">
+    <section class="activity-tracker__menu">
+      <div class="activity-tracker__owner">
+        <img src="./images/image-jeremy.png" alt="" class="activity-tracker__owner-img">
+        <div class="activity-tracker__owner-container">
+          <p class="activity-tracker__owner-for">Report for</p>
+          <h1 class="activity-tracker__owner-name">Jeremy Robson</h1>
         </div>
-
-        <div class="tracker">
-            <!-- <div class="event-tracker first-tracker">
-                <div class="box">
-                    <img src="./images/icon-work.svg" class="icon" alt="">
-                </div>
-                <div class="details">
-                    <div class="activity">
-                        <p>work</p>
-                        <img src="./images/icon-ellipsis.svg" class="ellipsis" alt="">
-                    </div>
-                    <div class="activity-time">
-                        <h1 class="hour">32hrs</h1>
-                        <div class="date">
-                            <span class="time">Last Week</span> - <span class="time2"></span>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
+      </div>
+      <div class="activity-tracker__options">
+        <button class="activity-tracker__option" data-option="daily">
+          Daily
+        </button>
+        <button class="activity-tracker__option" data-option="weekly">
+          Weekly
+        </button>
+        <button class="activity-tracker__option" data-option="monthly">
+          Monthly
+        </button>
+      </div>
     </section>
-
-
-    <script src="./index.js"></script>
+    
+</section>
 </body>
+
 </html>

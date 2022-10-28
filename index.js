@@ -1,81 +1,94 @@
+const buttons = [...document.querySelectorAll('.activity-tracker__option')]
 let data = []
-const filterButton = document.querySelectorAll(".btn")
-const buttons = [...filterButton]
 
-const detectclickedButton = (array) => {
+const listenToButtons = (array) => {
     array.forEach(button => {
-        button.addEventListener("click", () => {
-            activateButtonClicked(button)
-            const clickedOption = button.dataset.id;
-            displayActivityData(clickedOption)
+        button.addEventListener('click', () => {
+            activateClickedButton(button)
+            const clickedOption = button.dataset.option
+            renderCards(clickedOption)
         })
     })
-}
+};
 
-//fetch data
-
-const loadFetchedData = async () => {
-  const response = await fetch('./data.json');
-  const fetchedData = await response.json();
-  data = fetchedData
-  buttons[1].click()
-}
-
-const activateButtonClicked = (button) => {
-    buttons.forEach(btn => btn.classList.remove("active"));
+const activateClickedButton = (button) => {
+    buttons.forEach(b => b.classList.remove('active'))
     button.classList.add('active')
 }
 
-const cleanActivities = () => {
-  const activities = document.querySelectorAll('.event-tracker')
-  activities.forEach(item => item.remove())
+const loadData = async () => {
+    // Fetch data
+    const response = await fetch('./data.json')
+    const fetchedData = await response.json()
+    data = fetchedData
+    buttons[1].click()
 }
 
-const displayActivityData = (clickedOption) => {
-  cleanActivities()
-  const activityTracker = document.querySelector('.tracker')
 
-  const measureTimeframeData = (time) => {
-    if (time === "daily") {
-      return "Yesterday"
-    } else if(time === "weekly") {
-      return "Last Week"
-    } else {
-      return "Last Month"
+const clearActivities = () => {
+    //Clear all activities from html
+    const activities = document.querySelectorAll('.activity-tracker__activity')
+    activities.forEach(a => a.remove())
+}
+
+const renderCards = async (clickedOption) => {
+    clearActivities()
+    const activityTracker = document.querySelector('section.activity-tracker')
+
+    const calcTimeframe = (option) => {
+        if (option === 'daily') {
+            return 'Yesterday'
+        } else if (option === 'weekly') {
+            return 'Last Week'
+        } else if (option === 'monthly') {
+            return 'Last Month'
+        }
     }
-  }
 
-  
-  data.forEach((activity) => {
-    const title = activity.title;
-    const activityClassName = title.toLowerCase().replace(" ", "-");
-    const timeframes = activity.timeframes[clickedOption];
-    const prevTimeframes  =  measureTimeframeData(clickedOption);
-    const activityContainer = document.createElement("div");
-    activityContainer.classList.add("event-tracker", activityClassName);
-    const sectionContent = `<div class="box">
-            <img src="./images/icon-${activityClassName}.svg" class="icon" alt="">
+    
+    data.forEach(activity => {
+        const name = activity.title
+        const activityClass = name.toLowerCase().replace(' ', '-')
+        const timeframeData = activity.timeframes[clickedOption]
+        const previousTimeframe = calcTimeframe(clickedOption)
+        const section = document.createElement('section')
+        section.classList.add('activity-tracker__activity', activityClass)
+        const stringToInject = `
+        <div class="activity__bg">
+            <img src="./images/icon-${activityClass}.svg" alt="">
         </div>
-        <div class="details">
-            <div class="activity">
-                <p>${title}</p>
-                <img src="./images/icon-ellipsis.svg" class="ellipsis" alt="">
-            </div>
-            <div class="activity-time">
-                <h1 class="hour">${timeframes.current}hrs</h1>
-                <div class="date">
-                    <span class="time">${prevTimeframes}</span> - <span class="time2">${timeframes.previous}hrs</span>
-                </div>
-            </div>
-        </div>`
-        
-    activityContainer.innerHTML = sectionContent
-    activityTracker.append(activityContainer)
-  })
-} 
+        <div class="activity__info">
+         <header class="activity__header">
+          <h2 class="activity__name">
+            ${name}
+          </h2>
+          <div class="activity__options">
+            <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
+                fill="#BBC0FF" fill-rule="evenodd" />
+            </svg>
+           </div>
+         </header>
+        <div class="activity__timeframes">
+          <h3 class="activity__current-timeframe">
+            ${timeframeData.current}hrs
+          </h3>
+          <div class="activity__previous-timeframe">
+            <p class="time-window">${previousTimeframe}</p>
+            <p> - </p>
+            <p class="time">${timeframeData.previous}hrs</p>
+          </div>
+         </div>
+        </div>
+        `
+        section.innerHTML = stringToInject
+        activityTracker.append(section)
+    })
 
+};
 
-detectclickedButton(buttons)
-loadFetchedData()
+listenToButtons(buttons)
+loadData()
 
 
