@@ -1,8 +1,8 @@
 # A Time Tracker Dashboard 
-------------
-<p>This is a solution to the Time Tracker Dashboard challenge on codwell.cc. They help you improve your Html and Css coding skills by building realistic projects.</p>
-<h1>Table of Content</h1>
 
+<p>This is a solution to the Time Tracker Dashboard challenge on codwell.cc. They help you improve your Html and Css coding skills by building realistic projects.</p>
+
+<h1>Table of Content</h1>
 <ul>
   <li>Overview
     <ul>
