@@ -23,5 +23,4 @@
   <li>Acknowledgments</li>
 </ul>
 
-# This readMe is under construction.......
-🏗️🚧
+# This readMe is under construction🏗️🚧...
